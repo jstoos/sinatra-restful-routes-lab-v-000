@@ -16,8 +16,7 @@ class ApplicationController < Sinatra::Base
   post '/recipes' do
     @recipe = Recipe.create(:name => params[:name], :ingredients => params[:ingredients], :cook_time => params[:cook_time])
     # raise @recipe.inspect
-    #erb :show  #--does not "redirect" as test requires
-    redirect to "/recipes/#{@recipe.id}" #does not carry @recipe forward
+    redirect to "/recipes/#{@recipe.id}"
   end
 
   get '/recipes/:id' do
